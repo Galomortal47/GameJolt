@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Control.gd" type="Script" id=1]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_top = 57.0
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="LineEdit" type="LineEdit" parent="."]
+margin_left = 109.0
+margin_right = 1023.0
+margin_bottom = 56.0
+text = "https://godotengine.org"
+
+[node name="Button" type="Button" parent="."]
+margin_top = -2.0
+margin_right = 110.0
+margin_bottom = 56.0
+text = "GO!"
+
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
+[connection signal="button_down" from="Button" to="." method="_on_Button_button_down"]
