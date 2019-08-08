@@ -8,12 +8,11 @@ var y = 1
 func _on_Button_button_down():
 	$Save.loader()
 	array = $Save.data
-	i = data.size()
 	data = {
 		Username = [$Username.get_text()]
 #		,password = [$Password.get_text()]
 	}
-	array[i] = data
+	array[array.size()+1] = data
 	i += 1
 	$Save.data = array
 	$Save.save()
