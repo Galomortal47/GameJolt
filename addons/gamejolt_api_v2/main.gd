@@ -74,7 +74,7 @@ func fetch_user(username='', id=0):
 	if busy: return
 	busy = true
 	var url = compose_url('fetch_user/fetch_user/user_fetched', [username, id])
-	print([username, id])
+#	print([username, id])
 	request(url)
 	pass
 	
@@ -166,6 +166,7 @@ func get_data_keys(username='', token=''):
 	if busy: return
 	busy = true
 	var url = compose_url('get_data_keys/get_data_keys/data_got_keys', [username, token])
+	print(url)
 	request(url)
 	pass
 	
@@ -192,7 +193,7 @@ func compose_url(type, args):
 	final_url += '&game_id=' + str(game_id)
 	var s = final_url + private_key
 	s = s.md5_text()
-	print(final_url + '&signature=' + s)
+#	print(final_url + '&signature=' + s)
 	return final_url + '&signature=' + s
 	pass
 	

@@ -5,7 +5,7 @@ func _on_GameJoltAPI_api_session_opened(success):
 		username =[ $Username.get_text()]
 		,password = [$Password.get_text()]
 	}
-	$GameJoltAPI.set_data("myData", data)
+	$GameJoltAPI.get_data_keys()
 	pass # Replace with function body.
 
 func _on_Button_button_down():
