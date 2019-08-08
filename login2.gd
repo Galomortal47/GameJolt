@@ -3,7 +3,7 @@ extends Node2D
 var data = {}
 var array = {}
 var i = 1
-var y = 0
+var y = 1
 
 func _on_Button_button_down():
 	data = {
@@ -20,10 +20,10 @@ func _on_Button_button_down():
 func _on_Button2_button_down():
 	$Save.loader()
 	array = $Save.data
-	y = array.size()
-	while y > 0:
-		print(array[str(y)].Username)
-		if str(array[str(y)].Username) == $Username.get_text():
-			print(array[y]).Username
-		y -= 1
+	y = 1
+	while(y <= array.size()): 
+#		print(array[str(y)].Username)
+		if array[str(y)].Username == [$Username.get_text()]:
+			print(array[str(y)].Username)
+		y += 1
 	pass # Replace with function body.
