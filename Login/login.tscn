@@ -12,6 +12,7 @@ margin_left = 340.0
 margin_top = 260.0
 margin_right = 660.0
 margin_bottom = 400.0
+disabled = true
 
 [node name="Username" type="LineEdit" parent="."]
 margin_left = 435.132

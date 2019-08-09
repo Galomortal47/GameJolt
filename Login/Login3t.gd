@@ -18,7 +18,7 @@ func _on_Button_button_down():
 	$Label3.set_text("account created")
 	pass # Replace with function body.
 
-
+# + str($Password.get_text())
 func _on_Button2_button_down():
 	account = true
 	$HTTPRequest.fetched = true
@@ -36,6 +36,6 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 		$Label3.set_text("login succesfull")
 		print("succes")
 	elif account:
-		$Label3.set_text("account doesen't exist or password is incorrect")
+		$Label3.set_text("password doesen't match")
 		print("failure")
 	pass # Replace with function body.
