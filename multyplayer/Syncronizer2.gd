@@ -8,7 +8,7 @@ var signature
 var url
 
 func _ready():
-#	fetch()
+	fetch()
 	pass
 
 func fetch():
@@ -28,6 +28,6 @@ func _on_Syncronizer_request_completed(result, response_code, headers, body):
 	var json = parse_json(body.get_string_from_ascii())
 #	print(body.get_string_from_utf8())
 	print(json.response.data)
-	get_parent().get_parent().get_node("Player").set_position(Vector2(json.response.data[0],json.response.data[1]))
+	get_parent().get_parent().get_node("Player").set_position(Vector2(float(json.response.data[0]),float(json.response.data[1])))
 	fetch()
 	pass # Replace with function body.
