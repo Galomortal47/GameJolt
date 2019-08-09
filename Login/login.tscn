@@ -14,7 +14,6 @@ margin_right = 578.132
 margin_bottom = 311.757
 
 [node name="Password" type="LineEdit" parent="."]
-visible = false
 margin_left = 435.132
 margin_top = 327.757
 margin_right = 578.132
@@ -28,7 +27,6 @@ margin_bottom = 307.25
 text = "USERNAME:"
 
 [node name="Label2" type="Label" parent="."]
-visible = false
 margin_left = 356.874
 margin_top = 333.389
 margin_right = 433.874
@@ -36,16 +34,16 @@ margin_bottom = 347.389
 text = "PASSWORD:"
 
 [node name="Button" type="Button" parent="."]
-margin_left = 480.904
-margin_top = 317.908
-margin_right = 538.904
-margin_bottom = 337.908
+margin_left = 589.017
+margin_top = 329.054
+margin_right = 647.017
+margin_bottom = 349.054
 text = "CREATE"
 
 [node name="Button2" type="Button" parent="."]
-margin_left = 589.791
+margin_left = 589.017
 margin_top = 288.757
-margin_right = 647.791
+margin_right = 647.017
 margin_bottom = 308.757
 text = "LOGIN"
 
@@ -56,6 +54,19 @@ script = ExtResource( 2 )
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 script = ExtResource( 3 )
+
+[node name="Label3" type="Label" parent="."]
+margin_left = 440.282
+margin_top = 355.284
+margin_right = 573.282
+margin_bottom = 369.284
+
+[node name="Label4" type="Label" parent="."]
+margin_left = 439.425
+margin_top = 270.404
+margin_right = 572.425
+margin_bottom = 284.404
+text = "press login twice"
 
 [connection signal="button_down" from="Button" to="." method="_on_Button_button_down"]
 [connection signal="button_down" from="Button2" to="." method="_on_Button2_button_down"]
