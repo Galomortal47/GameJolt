@@ -6,6 +6,8 @@ export var key_private = "791eef1ab8afcd2c70248a8a6e4cbe4a"
 var signature
 var url
 var json
+var fetch
+var fetched = false
 
 func set_generate_signature():
 	signature = ("http://gamejolt.com/api/game/v1/data-store/set/?key=" + myData + "&&data=" + str(data) + "&format=json&game_id=" +  game_id + key_private).md5_text()
@@ -29,9 +31,12 @@ func get_data():
 	
 func fetch_data():
 	url = "http://gamejolt.com/api/game/v1/data-store/?format=json&game_id=" +  game_id + "&key=" + myData + "&signature=" + signature
+	fetched = true
 	print(url)
 
 func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 	json  = parse_json(body.get_string_from_ascii())
-	print(json)
+	if fetched:
+		fetch = json.response.data
+#	print(json)
 	pass # Replace with function body.
