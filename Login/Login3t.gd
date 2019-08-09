@@ -6,6 +6,7 @@ var i = 1
 var y = 1
 
 func _on_Button_button_down():
+	$HTTPRequest.fetched = false
 	$HTTPRequest.data = [$Username.get_text()]
 	$HTTPRequest.set_generate_signature()
 	$HTTPRequest.set_data()
@@ -15,9 +16,7 @@ func _on_Button_button_down():
 
 
 func _on_Button2_button_down():
-	fetch()
-
-func fetch():
+	$HTTPRequest.fetched = true
 	$HTTPRequest.fetch_generate_signature()
 	$HTTPRequest.fetch_data()
 	var url = $HTTPRequest.url
@@ -29,4 +28,6 @@ func fetch():
 func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 	if str($HTTPRequest.fetch) == str([$Username.get_text()]):
 		print("succes")
+	else:
+		print("failure")
 	pass # Replace with function body.

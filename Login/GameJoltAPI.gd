@@ -31,7 +31,6 @@ func get_data():
 	
 func fetch_data():
 	url = "http://gamejolt.com/api/game/v1/data-store/?format=json&game_id=" +  game_id + "&key=" + myData + "&signature=" + signature
-	fetched = true
 	print(url)
 
 func _on_HTTPRequest_request_completed(result, response_code, headers, body):
