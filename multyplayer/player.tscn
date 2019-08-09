@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://multyplayer/Player.gd" type="Script" id=1]
+[ext_resource path="res://multyplayer/Syncronizer.gd" type="Script" id=2]
+[ext_resource path="res://multyplayer/Syncronizer2.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 363, 10 )
@@ -11,13 +13,10 @@ extents = Vector2( 15, 30 )
 [node name="Node2D" type="Node2D"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+editor/display_folded = true
 position = Vector2( 528, 589 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource( 1 )
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 416.628, -46.4395 )
 shape = SubResource( 1 )
 
 [node name="Player" type="KinematicBody2D" parent="."]
@@ -30,10 +29,20 @@ shape = SubResource( 2 )
 [node name="floor_detect" type="RayCast2D" parent="Player"]
 position = Vector2( -14, 0 )
 enabled = true
-cast_to = Vector2( 0, 31 )
+cast_to = Vector2( 0, 32 )
 
 [node name="floor_detect2" type="RayCast2D" parent="Player"]
 position = Vector2( 14, 0 )
 enabled = true
-cast_to = Vector2( 0, 31 )
+cast_to = Vector2( 0, 32 )
 
+[node name="Node" type="Node" parent="."]
+
+[node name="setter" type="HTTPRequest" parent="Node"]
+script = ExtResource( 2 )
+
+[node name="fetcher" type="HTTPRequest" parent="Node"]
+script = ExtResource( 3 )
+
+[connection signal="request_completed" from="Node/setter" to="Node/setter" method="_on_Syncronizer_request_completed"]
+[connection signal="request_completed" from="Node/fetcher" to="Node/fetcher" method="_on_Syncronizer_request_completed"]
