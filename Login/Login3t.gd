@@ -22,6 +22,7 @@ func _on_Button_button_down():
 func _on_Button2_button_down():
 	account = true
 	$HTTPRequest.fetched = true
+	$HTTPRequest.myData = str($Username.get_text())
 	$HTTPRequest.fetch_generate_signature()
 	$HTTPRequest.fetch_data()
 	var url = $HTTPRequest.url
@@ -35,6 +36,6 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 		$Label3.set_text("login succesfull")
 		print("succes")
 	elif account:
-		$Label3.set_text("account doesen't exist")
+		$Label3.set_text("account doesen't exist or password is incorrect")
 		print("failure")
 	pass # Replace with function body.
