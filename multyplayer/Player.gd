@@ -5,10 +5,10 @@ var speed = 50
 var max_speed = 500
 var drag = 0.75
 var jump = 65
-var air_drag = 0.9
+var air_drag = 0.95
 var air_time = 0.125
 var air_time_aux = air_time
-var speed_air = 13
+var speed_air = 8
 var gravity = 20
 var speed_jump = 0.01
 

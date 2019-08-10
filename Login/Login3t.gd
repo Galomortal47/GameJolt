@@ -9,6 +9,7 @@ var account = false
 func _on_Button_button_down():
 	account = false
 	$HTTPRequest.fetched = false
+#	$HTTPRequest.data = [$Save.data]
 	$HTTPRequest.data = [$Password.get_text()]
 	$HTTPRequest.myData = str($Username.get_text() + str($Password.get_text()))
 	$HTTPRequest.set_generate_signature()
@@ -30,7 +31,7 @@ func _on_Button2_button_down():
 
 
 func _on_HTTPRequest_request_completed(result, response_code, headers, body):
-	if str($HTTPRequest.fetch) == str($Save.data):
+	if str($HTTPRequest.fetch) == str([$Password.get_text()]):
 		$Label3.set_text("login succesfull")
 	elif account:
 		$Label3.set_text("password doesen't match")
