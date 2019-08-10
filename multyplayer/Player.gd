@@ -45,5 +45,5 @@ func _process(delta):
 #	pass
 
 func floor_detection():
-	if $floor_detect.is_colliding() or $floor_detect2.is_colliding() or $floor_detect3.is_colliding(): 
+	if $floor_detect1.is_colliding() or $floor_detect2.is_colliding() or $floor_detect3.is_colliding(): 
 		return true

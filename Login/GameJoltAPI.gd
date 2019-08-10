@@ -35,7 +35,9 @@ func fetch_data():
 
 func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 	json  = parse_json(body.get_string_from_ascii())
+	print(json)
 	if fetched:
-		fetch = json.response.data
+		if not json.response.success == "false":
+			fetch = json.response.data
 #	print(json)
 	pass # Replace with function body.

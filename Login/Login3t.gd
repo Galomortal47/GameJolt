@@ -10,7 +10,7 @@ func _on_Button_button_down():
 	account = false
 	$HTTPRequest.fetched = false
 	$HTTPRequest.data = [$Password.get_text()]
-	$HTTPRequest.myData = str($Username.get_text())
+	$HTTPRequest.myData = str($Username.get_text() + str($Password.get_text()))
 	$HTTPRequest.set_generate_signature()
 	$HTTPRequest.set_data()
 	var url = $HTTPRequest.url
@@ -22,7 +22,7 @@ func _on_Button_button_down():
 func _on_Button2_button_down():
 	account = true
 	$HTTPRequest.fetched = true
-	$HTTPRequest.myData = str($Username.get_text())
+	$HTTPRequest.myData = str($Username.get_text() + str($Password.get_text()))
 	$HTTPRequest.fetch_generate_signature()
 	$HTTPRequest.fetch_data()
 	var url = $HTTPRequest.url
