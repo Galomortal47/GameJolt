@@ -13,8 +13,7 @@ func _on_Button_button_down():
 	$HTTPRequest.myData = str($Username.get_text() + str($Password.get_text()))
 	$HTTPRequest.set_generate_signature()
 	$HTTPRequest.set_data()
-	var url = $HTTPRequest.url
-	$HTTPRequest.request(url)
+	$HTTPRequest.request($HTTPRequest.url)
 	$Label3.set_text("account created")
 	pass # Replace with function body.
 
@@ -25,17 +24,14 @@ func _on_Button2_button_down():
 	$HTTPRequest.myData = str($Username.get_text() + str($Password.get_text()))
 	$HTTPRequest.fetch_generate_signature()
 	$HTTPRequest.fetch_data()
-	var url = $HTTPRequest.url
-	$HTTPRequest.request(url)
+	$HTTPRequest.request($HTTPRequest.url)
 #	print($HTTPRequest.json)
 	pass # Replace with function body.
 
 
 func _on_HTTPRequest_request_completed(result, response_code, headers, body):
-	if str($HTTPRequest.fetch) == str([$Password.get_text()]):
+	if str($HTTPRequest.fetch) == str($Save.data):
 		$Label3.set_text("login succesfull")
-		print("succes")
 	elif account:
 		$Label3.set_text("password doesen't match")
-		print("failure")
 	pass # Replace with function body.

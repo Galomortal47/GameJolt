@@ -2,11 +2,11 @@ extends Node
 
 var save = "res://save.json"
 var file = File.new()
-var data = {}
+var data = {"level":"level5","coins":5000,"upgrade1":true}
 
 
 func _ready():
-	loader()
+#	loader()
 	save()
 
 func save():
